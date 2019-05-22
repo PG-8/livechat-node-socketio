@@ -3,43 +3,55 @@
   <head>
     <title>Node chat</title>
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { position: fixed; bottom: 0; width: 100%; }
-      form input { background: #999fff;border: 0; padding:10px; width: 90%; }
-      form button { width: 10%; background:#777fff; border: none; padding: 10px; }
+      /* * { margin: 0; padding: 0; box-sizing: border-box; } */
+      body { font: 18px Helvetica, Arial;}
+      form {position: fixed; bottom: 0; width: 100%;}
+      form input { background: #999fff;border: 0; padding:10px; width: 100%; font: 18px Helvetica, Arial;}
+      form button { background:#777fff; border: none; padding: 20px; width: 100%; font: 30px Helvetica, Arial;}
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+      #messages li:nth-child(odd) { background: #eee;}
+      .flex-container { display: flex; justify-content: center; background-color: DodgerBlue; }
+      .messages-container {
+        height: calc(100vh - 116px);
+        width: 100%;
+        overflow: scroll;
+      }
     </style>
   </head>
   
 <!-- Body starts here -->
 
+
   <body>
-    <ul id="messages"></ul>
-        <form id="form1" action="">
-            <input id="m" autocomplete="off" placeholder="type here.." /><button>Submit</button>
-        </form>
-    
+    <div class="messages-container">
+      <ul id="messages"></ul>
+    </div>
+    <div class="flex-container">
+      <form id="form1" action="">
+        <input id="m" autocomplete="off" placeholder="type here.." />
+        <button>Submit</button>
+      </form>
+    </div>
 <!-- Script starts here -->
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
-        document.getElementById('form1').addEventListener('submit', function(e){
-            let a = document.getElementById('m').value;
-            e.preventDefault();
-            socket.emit('chatMsg', a);
-            document.getElementById('m').value = '';
-            return false;    
-        });
-        socket.on('chatMsg', function(msg){
-                const b = document.getElementById('messages');
-                const li = document.createElement("li");
-                li.appendChild(document.createTextNode(msg));
-                b.appendChild(li);
-        });
+
+      const socket = io();
+      document.getElementById('form1').addEventListener('submit', function(e){
+        let messaggio = document.getElementById('m').value;
+        e.preventDefault();
+        socket.emit('chatMsg', messaggio);
+        document.getElementById('m').value = '';
+        return false;    
+      });
+      socket.on('chatMsg', function(msg){
+        const ul = document.getElementById('messages');
+        const li = documengit pusht.createElement("li");
+        li.appendChild(document.createTextNode(msg));
+        ul.appendChild(li);
+      });
       </script>
   </body>
 </html>
