@@ -2,7 +2,7 @@
 
 Simple live chat app created using Node and Socket.io
 
-In the gif below, you can see swapping between the browser's private windows. The purpose is to emulate multiple connections to the same localhost. Works with any number of devices connected to the same network and port.
+In the gif below, you can see swapping between my browser's windows. The purpose is to emulate multiple connections to the same localhost. Works with any number of devices connected to the same network and port.
 
 ![](https://raw.githubusercontent.com/PG-8/livechat-node-socketio/master/livechat.gif)
 
