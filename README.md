@@ -1,7 +1,9 @@
 # livechat-node-socketio
 
-Simple live chat app done using node.js and socket.io Server will run on localhost:3000 after initiating index.js with "node index.js" in the terminal.
+Simple live chat app created using Node and Socket.io
+
+In the gif below, you can see swapping between the browser's private windows. The purpose is to emulate multiple connections to the same localhost. Works with any number of devices connected to the same network and port.
 
 ![](https://raw.githubusercontent.com/PG-8/livechat-node-socketio/master/livechat.gif)
 
-**The app's chat messages have not been styled to differ based on the source. The goal was to write as little as possible and deploy a functioning live chat on localhost**
+**The goal of this app was to write as little code as possible. I may or may not go back to this repo and add functionalities or styling.**
